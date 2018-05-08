@@ -1,17 +1,35 @@
 <h3>List</h3>
+<a href="/logout">Logout</a>
+
+
+<div class="container">
+    <div class="row">
+        {{#each list.restaurants }}
+            <div class="col-md-4">
+                <p> <a href=""></a>{{ this.restaurant.name }} </p>
+                 <p>Cuisines: {{ this.restaurant.cuisines }}</p>
+                 <hr>
+            </div>
+        <p>{{ newRestaurant.name }}</p>
+        {{/each }}
+
+    </div>
+    
+</div>
 
 
 {{!-- <p>{{ list.results_found }}</p> --}}
-<ul>
+{{!-- <ul> --}}
 
 
-{{#each list.restaurants }}
-    <li>{{ this.restaurant.name }}</li>
-    <p> Address: {{ this.restaurant.location.address }}</p>
-    <p>Cuisines: {{ this.restaurant.cuisines }}</p>
-    <p>Rating: {{ this.restaurant.user_rating.aggregate_rating }}</p>
-    <p>Price Range: {{ this.restaurant.price_range }}</p>
 
-{{/each }}
+    {{!-- <li><a href="{{ this.restaurant.photos_url }}">Image gallery</a></li> --}}
 
-</ul>
+    {{!-- <li>{{ this.restaurant.name }}</li> --}}
+    {{!-- <p> Address: {{ this.restaurant.location.address }}</p> --}}
+    {{!-- <p>Cuisines: {{ this.restaurant.cuisines }}</p> --}}
+    {{!-- <p>Rating: {{ this.restaurant.user_rating.aggregate_rating }}</p> --}}
+    {{!-- <p>Price Range: {{ this.restaurant.price_range }}</p> --}}
+
+
+{{!-- </ul> --}}

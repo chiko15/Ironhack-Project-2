@@ -117,5 +117,4 @@ const restaurantRoutes = require('./routes/restaurantRoutes')
 app.use('/', restaurantRoutes);
 
 
-
 module.exports = app;
