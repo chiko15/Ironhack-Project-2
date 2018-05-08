@@ -10,6 +10,13 @@ const logger       = require('morgan');
 const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const User           = require('./models/user');
+const passport       = require("passport");
+const LocalStrategy  = require("passport-local").Strategy;
+const flash          = require("connect-flash");
+const bcrypt         = require("bcrypt");
+const axios          = require("axios");
+
 
 
 mongoose.Promise = Promise;
@@ -40,6 +47,14 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
+// setup session
+app.use(session({
+  secret: "express-app",
+  resave: true,
+  saveUninitialized: true
+}))
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -47,22 +62,60 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-app.use(session({
-  secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
-  })
+// default value for title local
+app.locals.title = 'My fancy app';
+app.use(flash());
+
+
+//passport config area
+passport.serializeUser((user, cb) => {
+  console.log("user : ", user)
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    console.log("blsh : ", user)
+
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+passport.use(new LocalStrategy({
+  passReqToCallback: true
+}, (req, username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    console.log("===== : ", user)
+
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
 }));
 
 
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+const index = require('./routes/index')
+app.use('/', index);
 const authRoutes = require('./routes/authRoutes')
 app.use('/', authRoutes);
-const siteRoutes = require('./routes/siteRoutes');
-app.use('/', siteRoutes);
+const restaurantRoutes = require('./routes/restaurantRoutes')
+app.use('/', restaurantRoutes);
+
 
 
 module.exports = app;

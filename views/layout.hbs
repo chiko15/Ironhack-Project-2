@@ -3,11 +3,21 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='/javascripts/script.js'></script>
+
   </head>
   <body>
-
+    <nav>
+      <a href="/login">login</a>
+      <a href="/signup">signup</a>
+    {{#if user }}
+      <a href="/logout">Logout</a>
+     {{/if  }} 
+    </nav>
     {{{body}}}
-
-    <script src='/javascripts/script.js'></script>
+    
+    
   </body>
 </html>
