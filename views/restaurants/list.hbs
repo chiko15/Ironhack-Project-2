@@ -1,4 +1,17 @@
 <h3>List</h3>
 
 
-<p>{{ list.results_found }}</p>
+{{!-- <p>{{ list.results_found }}</p> --}}
+<ul>
+
+
+{{#each list.restaurants }}
+    <li>{{ this.restaurant.name }}</li>
+    <p> Address: {{ this.restaurant.location.address }}</p>
+    <p>Cuisines: {{ this.restaurant.cuisines }}</p>
+    <p>Rating: {{ this.restaurant.user_rating.aggregate_rating }}</p>
+    <p>Price Range: {{ this.restaurant.price_range }}</p>
+
+{{/each }}
+
+</ul>
