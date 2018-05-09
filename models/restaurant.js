@@ -7,7 +7,7 @@ const restaurantSchema = new Schema({
   cuisines: { type:String, enum: ['american', 'tai', 'mediterenian'] },
   average_cost_for_two: { type: String },
   price_range: { type: String },
-  image: { type: String }
+  image: { type: String },
 }, {
   timestamps: {
     createdAt: "created_at",

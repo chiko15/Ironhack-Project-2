@@ -1,0 +1,39 @@
+<h1>Hello</h1>
+<form action="/restaurants/update/{{restaurant._id}}" method="post" enctype="multipart/form-data">
+    <label for="">Name:</label>
+    <input type="text" name="editedName" id="" value="{{ restaurant.name }}">
+
+    <label for="">Address:</label>
+    <input type="text" name="editedAddress" id="" value="{{ restaurant.address }}">
+
+    <label for="">Cuisines:</label>
+    <select name="editedCuisines" id="">
+        {{#if isAmerican}}
+        <option value="american" selected>American</option>
+        <option value="tai">Tai</option>
+        <option value="mediterenian">Mediterenian</option>
+        {{/if}}
+
+        {{#if isTai}}
+        <option value="american">American</option>
+        <option value="tai" selected>Tai</option>
+        <option value="mediterenian">Mediterenian</option>
+        {{/if }}
+        {{#if isMediteranean}}
+        <option value="american" >American</option>
+        <option value="tai">Tai</option>
+        <option value="mediterenian" selected>Mediterenian</option>
+        {{/if}}
+    </select>
+
+    <label for="">Average cost for two:</label>
+    <input type="number" name="editedAvgCost" id="" value="{{ restaurant.average_cost_for_two }}">
+
+    <label for="">Price range:</label>
+    <input type="number" name="editedPriceRange" id="" value="{{ restaurant.price_range }}">
+
+    <label for="">Insert image:</label>
+    <input type="file" name="editedImage" id="">
+
+    <button type="submit"> Save changes </button>
+</form>

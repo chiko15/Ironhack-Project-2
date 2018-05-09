@@ -1,3 +1,21 @@
-<h1>Details</h1>
-<h2>{{ restaurant.name }}</h2>
-<p>{{ restaurant.address }}</p>
+
+
+    <h1>Details</h1>
+    <a href="/logout">Logout</a>
+    <h2>{{ restaurant.name }}</h2>
+    <p>Address: {{ restaurant.address }}</p>
+    <p>Cuisines: {{ restaurant.cuisines }}</p>
+    <p>Cost For Two: ${{ restaurant.average_cost_for_two }}</p>
+    <p>Price Range: {{ restaurant.price_range }}</p>
+    <img src="{{ restaurant.image }}" alt="" width="300" height="300">
+    <br>
+    <br>
+    <a href="/restaurants/edit/{{restaurant._id}}"><button>Edit</button></a>
+
+    {{#each users}}
+    <div>
+    <img src="{{ this.imgPath }}" alt="">
+
+    </div>
+    {{/each}}
+

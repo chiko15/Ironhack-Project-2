@@ -1,22 +1,18 @@
 require('dotenv').config();
 
-const express = require('express');
-const router  = express.Router();
-
-const passport    = require("passport");
-const User        = require("../models/user");
-const Restaurant        = require("../models/restaurant");
-
-const flash       = require("connect-flash");
-const axios       = require("axios");
-
-const multer = require('multer');
-const path = require('path');
+const express       = require('express');
+const router        = express.Router();
+const passport      = require("passport");
+const User          = require("../models/user");
+const Restaurant    = require("../models/restaurant");
+const flash         = require("connect-flash");
+const axios         = require("axios");
+const multer        = require('multer');
+const path          = require('path');
 
 const uploader = multer({
     dest:path.join(__dirname,'../public/images')
 })
-
 
 
 function ensureAuthenticated(req, res, next) {
@@ -72,12 +68,14 @@ router.post('/restaurants/create', uploader.single('restImage'), (req, res, next
     } )
 })
 
+
 router.get('/restaurants/private', (req, res, next) => {
     Restaurant.find()
     .then( restaurants => {
         res.render('restaurants/private', {restaurants: restaurants})
     } )
 })
+
 
 router.get('/restaurants/private/:theId', (req, res, next) => {
     const restaurantId = req.params.theId;
@@ -92,4 +90,74 @@ router.get('/restaurants/private/:theId', (req, res, next) => {
     })
 });
 
+
+
+// EDIT - GET ROUTE
+// url: localhost:3000/celebrities/edit/1234567890
+router.get('/restaurants/edit/:id', (req, res, next) => {
+    const restaurantId = req.params.id;
+    // console.log(celebId);
+    Restaurant.findById(restaurantId)
+    .then(restuarantFromDB => {
+        isAmerican = false;
+        isTai = false;
+        isMediteranean = false;
+        
+        if(restuarantFromDB.cuisines === 'american' ){
+            isAmerican = true;
+        }
+        if(restuarantFromDB.cuisines === 'tai' ){
+            isTai = true;
+        }
+        if(restuarantFromDB.cuisines === 'mediterenian' ){
+            isMediteranean = true;
+        }
+
+        res.render("restaurants/edit", { restaurant: restuarantFromDB , isAmerican, isTai, isMediteranean})
+    })
+  })
+  
+  // EDIT - POST ROUTE
+  router.post('/restaurants/update/:id', uploader.single('editedImage'), (req, res, next) => {
+    const restaurantId = req.params.id;
+    // console.log("editedName: ", editedName)
+    Restaurant.findById(restaurantId)
+    .then((oneRestaurantFromDB) => {
+        console.log("oneRestaurantFromDB is: ", oneRestaurantFromDB)
+        oneRestaurantFromDB.name = req.body.editedName;
+        oneRestaurantFromDB.address = req.body.editedAddress;
+        oneRestaurantFromDB.cuisines = req.body.editedCuisines;
+        oneRestaurantFromDB.average_cost_for_two = req.body.editedAvgCost;
+        oneRestaurantFromDB.price_range = req.body.editedPriceRange;
+        if(req.body.editedImage){
+            oneRestaurantFromDB.image = `/images/${req.file.filename}`   
+        }
+        else{
+            oneRestaurantFromDB.image = oneRestaurantFromDB.image;
+        }
+        oneRestaurantFromDB.save((error) => {
+            if(error){
+                console.log("error is: ", error)
+            }
+            res.redirect(`/restaurants/private/${restaurantId}`)
+        })
+    })
+    .catch( error => {
+        console.log("Error while updating: ", error)
+    })
+  })
+
+  router.post('restaurants/:theId/delete', (req, res, next) => {
+    const restaurantId = req.params.theId;
+    Restaurant.findByIdAndRemove(restaurantId)
+    .then(() => {
+        res.redirect("/restaurants/private");
+    })
+    .catch( error => {
+        console.log("Error while deleting: ", error)
+    })
+})
+
+
 module.exports = router;
+
