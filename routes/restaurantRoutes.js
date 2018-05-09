@@ -77,4 +77,17 @@ router.get('/restaurants/private', (req, res, next) => {
     } )
 })
 
+router.get('/restaurants/private/:theId', (req, res, next) => {
+    const restaurantId = req.params.theId;
+    // console.log(restaurantId);
+    Restaurant.findById(restaurantId)
+    .then(oneRestaurantFromDB => {
+        console.log(oneRestaurantFromDB);
+        res.render('restaurants/details', { restaurant: oneRestaurantFromDB })
+    })
+    .catch( error => {
+        console.log("Error while getting details: ", error)
+    })
+});
+
 module.exports = router;

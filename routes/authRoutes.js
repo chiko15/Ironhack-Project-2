@@ -6,6 +6,8 @@ const User     = require("../models/user");
 const flash       = require("connect-flash");
 const ensureLogin = require("connect-ensure-login");
 
+
+
 // BCrypt to encrypt passwords
 const bcrypt         = require("bcrypt");
 const bcryptSalt     = 10;
@@ -73,7 +75,6 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/login");
 });
-
 
 
 
