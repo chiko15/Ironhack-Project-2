@@ -147,17 +147,19 @@ router.get('/restaurants/edit/:id', (req, res, next) => {
     })
   })
 
-  router.post('restaurants/:theId/delete', (req, res, next) => {
-    const restaurantId = req.params.theId;
+
+router.post('/restaurants/delete/:id', (req, res, next) => {
+    const restaurantId = req.params.id;
     Restaurant.findByIdAndRemove(restaurantId)
-    .then(() => {
-        res.redirect("/restaurants/private");
+    .then(restaurant => {
+        console.log(restaurant);
     })
-    .catch( error => {
-        console.log("Error while deleting: ", error)
+    .catch(error => {
+        console.log(error);
     })
+    res.redirect('/restaurants/private')
 })
 
 
-module.exports = router;
 
+module.exports = router;

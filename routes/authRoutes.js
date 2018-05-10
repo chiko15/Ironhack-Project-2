@@ -77,19 +77,5 @@ router.get("/logout", (req, res) => {
 });
 
 
-// DELETE 
-// url: localhost:3000/celebrities/1234567890/delete
-// this route is post route so it won't be displayed, it's the action part of the delete form
-router.post('/:theId/delete', (req, res, next) => {
-  const restaurantId = req.params.theId;
-  Restaurant.findByIdAndRemove(restaurantId)
-  .then(() => {
-      res.redirect("/restaurants");
-  })
-  .catch( error => {
-      console.log("Error while deleting: ", error)
-  })
-})
-
 
 module.exports = router;
