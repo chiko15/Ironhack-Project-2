@@ -1,29 +1,35 @@
-<form action="/restaurants/create" method="post" id="form" enctype="multipart/form-data">
-    <h2>Create Restaurant</h2>
-    
-    <label for="">Name:</label>
-    <input type="text" name="restName" id="">
+<div class="bg2">
+    <div class="create">
 
-    <label for="">Address:</label>
-    <input type="text" name="restAddress" id="">
 
-    <label for="">Cuisines:</label>
-    <select name="cuisines" id="">
-        <option value="american">American</option>
-        <option value="tai">Tai</option>
-        <option value="mediterenian">Mediterenian</option>
-    </select>
-    <label for="">Average cost for two:</label>
-    <input type="number" name="avgCost" id="">
+    <form action="/restaurants/create" method="post" id="form" enctype="multipart/form-data">
+        <h2>Create Restaurant</h2>
+        
+        <label for="">Name:</label>
+        <input type="text" name="restName" id="">
 
-    <label for="">Price range:</label>
-    <input type="number" name="priceRange" id="">
+        <label for="">Address:</label>
+        <input type="text" name="restAddress" id="">
 
-    <label for="">Insert image:</label>
-    <input type="file" name="restImage" id="">
+        <label for="">Cuisines:</label>
+        <select name="cuisines" id="">
+            <option value="american">American</option>
+            <option value="tai">Tai</option>
+            <option value="mediterenian">Mediterenian</option>
+        </select>
+        <label for="">Average cost for two:</label>
+        <input type="number" name="avgCost" id="">
 
-    <button type="submit"> Create </button>
-</form>
+        <label for="">Price range:</label>
+        <input type="number" name="priceRange" id="">
 
+        <label for="">Insert image:</label>
+        <input type="file" name="restImage" id="">
+
+        <button type="submit"> Create </button>
+    </form>
+
+    </div>
+</div>
 
 

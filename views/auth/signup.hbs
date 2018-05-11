@@ -9,22 +9,27 @@
 </head>
 
 <body>
-  <form id="form" action="/signup" method="POST">
-    <label for="username">Username</label><br>
-    <input type="text" name="username"
-      placeholder="AnakinSkywalker">
+  <div class="bg1">
+    <div class="signup">
+      <form id="form" action="/signup" method="POST">
+        <label for="username">Username</label><br>
+        <input type="text" name="username"
+          placeholder="username">
 
-    <br><br>
-    <label for="password">Password</label><br>
-    <input type="password" name="password"
-      placeholder="DeathStar">
-    <br><br>
+        <br><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password"
+          placeholder="password">
+        <br><br>
 
-    {{#if message}}
-      <div class="error-message">{{ message }}</div>
-    {{/if}}
+        {{#if message}}
+          <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-    <button>Create account</button>
-  </form>
+        <button>Create account</button>
+      </form>
+    </div>
+  </div>
+  {{{body}}}
 </body>
 </html>

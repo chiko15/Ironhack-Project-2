@@ -1,20 +1,25 @@
-<h3>List</h3>
-<a href="/restaurants/create">Create Restaurants List</a>
-
-
-<div class="container">
-    <div class="row">
-        {{#each list.restaurants }}
-            <div class="col-md-4">
-                <p> <a href=""></a>{{ this.restaurant.name }} </p>
-                 <p>Cuisines: {{ this.restaurant.cuisines }}</p>
-                 <hr>
-            </div>
-        <p>{{ newRestaurant.name }}</p>
-        {{/each }}
-
+<div id="grad3">
+    <div class="list">
+        <h3>List</h3>
+        <a href="/restaurants/create">Create Restaurants List</a>
     </div>
-    
+
+
+
+    <div class="container">
+        <div class="row">
+            {{#each list.restaurants }}
+                <div class="col-md-4">
+                    <p> <a href=""></a>{{ this.restaurant.name }} </p>
+                    <p>Cuisines: {{ this.restaurant.cuisines }}</p>
+                    <hr>
+                </div>
+            <p>{{ newRestaurant.name }}</p>
+            {{/each }}
+
+        </div>
+        {{{body}}}
+    </div>
 </div>
 
 

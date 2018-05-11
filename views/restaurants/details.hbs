@@ -1,29 +1,35 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-3 col-md-6 col-lg-4" style="background-color:yellow">
-            <h1>Details</h1>
+<div>
+    <div id="grad1">
+
+
+            <div class="details-page">
+                <div>
+                    <h1>Details</h1>
+                </div>
+                <div>
+                    <a href="/restaurants/private">Restaurants List</a>
+                </div>  
+            <h2>{{ restaurant.name }}</h2>
+            <p>Address: {{ restaurant.address }}</p>
+            <p>Cuisines: {{ restaurant.cuisines }}</p>
+            <img src="{{ restaurant.image }}" alt="" width="300" height="300">
+            <br>
+            <br>
+            <a href="/restaurants/edit/{{restaurant._id}}"><button>Edit</button></a>
+            <form action="/restaurants/delete/{{restaurant._id}}" method="post">
+                <a href="#"><button class="submit">Delete</button></a>
+            </form>
+            {{#each users}}
+            <div>
+            {{!-- <img src="{{ this.imgPath }}" alt=""> --}}
+            </div>
+            {{/each}}
+            </div>
         </div>
-        <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:red; height: 70px; padding-top: 20px">
-            <a href="/restaurants/private">Restaurants List</a>
-        </div>  
     </div>
 </div>
-    <h2>{{ restaurant.name }}</h2>
-    <p>Address: {{ restaurant.address }}</p>
-    <p>Cuisines: {{ restaurant.cuisines }}</p>
-    <img src="{{ restaurant.image }}" alt="" width="300" height="300">
-    <br>
-    <br>
-    <a href="/restaurants/edit/{{restaurant._id}}"><button>Edit</button></a>
-    <form action="/restaurants/delete/{{restaurant._id}}" method="post">
-        <a href="#"><button class="submit">Delete</button></a>
-    </form>
-    {{#each users}}
-    <div>
-    <img src="{{ this.imgPath }}" alt="">
-    </div>
-    {{/each}}
+
 
 
 {{!-- <p>Cost For Two: ${{ restaurant.average_cost_for_two }}</p>

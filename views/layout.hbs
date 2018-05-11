@@ -17,27 +17,48 @@
 
   </head>
   <body>
-    <nav>
-      <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home Page</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/signup">Signup</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="/logout">Logout</a>
-        </li>
-      </ul>
-     
-    </nav>
-    {{{body}}}
- 
+    <nav class="navbar  navbar-inverse  navbar-fixed-top">
+    <div class="container">
+    <button type="button" class="navbar-toggle"
+    data-toggle="collapse"
+    data-target=".navbar-collapse"
+    >
+    <span class="sr-only"> Toggle navigation</span>
+    <span class="icon-bar"> </span>
+    <span class="icon-bar"> </span>
+    <span class="icon-bar"> </span>
+    </button>
+    
+    <a class="navbar-brand" href="/">IRON EATS</a>
+    
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+          <li class=""><a href="/login">Loging</a> </li>
+          <li class=""><a href="/signup">Signup</a> </li>
+        <li> <a href="/logout">Logout</a> </li>
+            <l
+          </li>
+        </ul>
+        </div>
+    </div>
+  </nav>
+    <div class="navbar  navbar-inverse navbar-fixed-bottom"> 
+      <div class="container">
+        <div class="navbar-text pull=left">
+        <p> © Ironhack 2018.</p>
+      </div>
+          
+    </div>
+    </div>
+  </nav>
+  {{{body}}}
   </body>
 </html>
+
+    
+    
+    
+ 
 
  {{!-- <a href="/login">login</a>
       <a href="/signup">signup</a>

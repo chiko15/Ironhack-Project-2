@@ -2,12 +2,16 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+.title {
+  padding-left: 700px;
+  padding-top: 10px; }
+
 #form {
   margin: 30px auto;
   width: 380px; }
 
 #form label {
-  color: #666;
+  color: white;
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
@@ -22,8 +26,8 @@ body {
   width: 100%; }
 
 #form button {
-  background: #39cea1;
-  border: 1px solid #39cea1;
+  background: black;
+  border: 1px solid black;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -37,7 +41,7 @@ body {
 
 #form button:hover {
   background: #fff;
-  color: #39cea1;
+  color: black;
   transition: .3s ease background; }
 
 .error-message {
@@ -48,8 +52,9 @@ body {
   padding: 20px;
   width: 100%; }
 
-.container {
-  padding-top: 50px; }
+.container-fluid {
+  display: flex;
+  align-content: space-between; }
 
 .nav-fill {
   align-content: space-around; }
@@ -82,5 +87,106 @@ body {
 
 .carousel-fade .carousel-control {
   z-index: 2; }
+
+body, html {
+  height: 100%; }
+
+.bg {
+  /* The image used */
+  background-image: url("/images/logo1.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.account-message {
+  color: white; }
+
+.login {
+  padding-top: 250px; }
+
+body, html {
+  height: 100%; }
+
+.bg1 {
+  /* The image used */
+  background-image: url("/images/background1.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.signup {
+  padding-top: 250px; }
+
+body, html {
+  height: 100%; }
+
+#grad1 {
+  height: 800px;
+  width: 100%;
+  background: linear-gradient(to right, white, aqua);
+  /* Standard syntax (must be last) */ }
+
+.details-page {
+  padding-left: 600px; }
+
+#grad2 {
+  height: 800px;
+  width: 100%;
+  background: linear-gradient(to right, aqua, white);
+  /* Standard syntax (must be last) */ }
+
+.private {
+  padding-left: 700px;
+  padding-top: 250px; }
+
+#grad3 {
+  height: 800px;
+  width: 100%;
+  background: radial-gradient(#faf8f8, #a7a7a4, #6edfbd);
+  /* Standard syntax (must be last) */ }
+
+#grad4 {
+  height: 850px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(243, 238, 227, 0.993), #5b65c0);
+  /* Standard syntax (must be last) */ }
+
+.container {
+  padding-top: 20px; }
+
+.bg2 {
+  /* The image used */
+  background-image: url("/images/food.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.create {
+  padding-right: 1100px;
+  padding-top: 100px;
+  font-style: white; }
+
+.bg3 {
+  /* The image used */
+  background-image: url("/images/patio.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.patio {
+  padding-top: 180px;
+  padding-left: 800px; }
 
 /*# sourceMappingURL=style.css.map */
