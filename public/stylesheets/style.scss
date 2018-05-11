@@ -157,7 +157,7 @@ body, html {
 
 
 #grad1 {
-  height: 800px;
+  height: 850px;
   width: 100%;
   // background: red; /* For browsers that do not support gradients */
   background: linear-gradient(to right, white , aqua); /* Standard syntax (must be last) */
@@ -168,7 +168,7 @@ body, html {
 }
 
 #grad2 {
-  height: 800px;
+  height: 850px;
   width: 100%;
     // background: red; /* For browsers that do not support gradients */
   background: linear-gradient(to right, aqua, white); /* Standard syntax (must be last) */
@@ -180,7 +180,7 @@ body, html {
 }
 
 #grad3 {
-  height: 800px;
+  height: 850px;
   width: 100%;
   // background: red; /* For browsers that do not support gradients */
   background: radial-gradient(rgb(250, 248, 248), rgb(167, 167, 164), rgb(110, 223, 189)); /* Standard syntax (must be last) */
