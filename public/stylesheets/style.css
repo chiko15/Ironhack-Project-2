@@ -2,9 +2,6 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
-
 #form {
   margin: 30px auto;
   width: 380px; }
@@ -25,8 +22,8 @@ a {
   width: 100%; }
 
 #form button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
+  background: #39cea1;
+  border: 1px solid #39cea1;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -40,7 +37,7 @@ a {
 
 #form button:hover {
   background: #fff;
-  color: #43a3e6;
+  color: #39cea1;
   transition: .3s ease background; }
 
 .error-message {
@@ -51,8 +48,39 @@ a {
   padding: 20px;
   width: 100%; }
 
-.pic {
-  width: 800px;
+.container {
+  padding-top: 50px; }
+
+.nav-fill {
+  align-content: space-around; }
+
+.item .item-active {
+  Width: 800px;
   height: 600px; }
+
+.carousel-fade .carousel-inner .item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity; }
+
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0; }
+
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1; }
+
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.carousel-fade .carousel-control {
+  z-index: 2; }
 
 /*# sourceMappingURL=style.css.map */

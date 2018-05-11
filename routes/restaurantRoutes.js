@@ -129,10 +129,16 @@ router.get('/restaurants/edit/:id', (req, res, next) => {
         oneRestaurantFromDB.cuisines = req.body.editedCuisines;
         oneRestaurantFromDB.average_cost_for_two = req.body.editedAvgCost;
         oneRestaurantFromDB.price_range = req.body.editedPriceRange;
-        if(req.body.editedImage){
+        console.log("==========================")
+console.log("body is: ", req.file)
+console.log("==========================")
+
+        if(req.file){
+            console.log("in if")
             oneRestaurantFromDB.image = `/images/${req.file.filename}`   
         }
         else{
+            console.log("in else")
             oneRestaurantFromDB.image = oneRestaurantFromDB.image;
         }
         oneRestaurantFromDB.save((error) => {
@@ -145,7 +151,7 @@ router.get('/restaurants/edit/:id', (req, res, next) => {
     .catch( error => {
         console.log("Error while updating: ", error)
     })
-  })
+  }) 
 
 
 router.post('/restaurants/delete/:id', (req, res, next) => {
