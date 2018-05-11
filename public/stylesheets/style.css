@@ -88,6 +88,9 @@ body {
 .carousel-fade .carousel-control {
   z-index: 2; }
 
+.col-md-12 {
+  padding-top: 110px; }
+
 body, html {
   height: 100%; }
 
